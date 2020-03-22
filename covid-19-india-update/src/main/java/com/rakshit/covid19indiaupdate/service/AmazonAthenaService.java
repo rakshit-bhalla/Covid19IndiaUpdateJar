@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.rakshit.covid19indiaupdate.util.FileUtil.EMPTY_STRING;
+import static com.rakshit.covid19indiaupdate.util.FileUtil.LINE_SEPARATOR;
 
 @Slf4j
 public class AmazonAthenaService {
@@ -52,55 +53,55 @@ public class AmazonAthenaService {
 
     public void dropTable(String database, String tableName) {
         String query = String.format("DROP TABLE %s;", tableName);
-        log.info("===================================");
+        log.info(LINE_SEPARATOR);
         processQuery(database, query);
         log.info("Table Dropped : {}", tableName);
-        log.info("===================================");
+        log.info(LINE_SEPARATOR);
     }
 
     public void dropTableIfExists(String database, String tableName) {
         String query = String.format("DROP TABLE IF EXISTS %s;", tableName);
-        log.info("===================================");
+        log.info(LINE_SEPARATOR);
         processQuery(database, query);
         log.info("Table Dropped : {}", tableName);
-        log.info("===================================");
+        log.info(LINE_SEPARATOR);
     }
 
     public void dropView(String database, String viewName) {
         String query = String.format("DROP VIEW %s;", viewName);
-        log.info("===================================");
+        log.info(LINE_SEPARATOR);
         processQuery(database, query);
         log.info("View Dropped : {}", viewName);
-        log.info("===================================");
+        log.info(LINE_SEPARATOR);
     }
 
     public void dropViewIfExists(String database, String viewName) {
         String query = String.format("DROP VIEW IF EXISTS %s;", viewName);
-        log.info("===================================");
+        log.info(LINE_SEPARATOR);
         processQuery(database, query);
         log.info("View Dropped : {}", viewName);
-        log.info("===================================");
+        log.info(LINE_SEPARATOR);
     }
 
     public void loadPartitions(String database, String table) {
         String query = String.format("MSCK REPAIR TABLE %s;", table);
-        log.info("===================================");
+        log.info(LINE_SEPARATOR);
         processQuery(database, query);
-        log.info("===================================");
+        log.info(LINE_SEPARATOR);
     }
 
     public void view(String database, String name) {
         String query = String.format("SELECT * FROM %s;", name);
-        log.info("===================================");
+        log.info(LINE_SEPARATOR);
         processQuery(database, query);
-        log.info("===================================");
+        log.info(LINE_SEPARATOR);
     }
 
     public void view(String database, String name, int limit) {
         String query = String.format("SELECT * FROM %s limit %d;", name, limit);
-        log.info("===================================");
+        log.info(LINE_SEPARATOR);
         processQuery(database, query);
-        log.info("===================================");
+        log.info(LINE_SEPARATOR);
     }
 
     public void processQuery(String database, String query) {
@@ -197,10 +198,10 @@ public class AmazonAthenaService {
     }
 
     public void createTable(String database, String query) {
-        log.info("===================================");
+        log.info(LINE_SEPARATOR);
         processQuery(database, query);
         log.info("Table Created");
-        log.info("===================================");
+        log.info(LINE_SEPARATOR);
     }
 
     public void createView(String database, String view, String metaData) {
@@ -214,9 +215,9 @@ public class AmazonAthenaService {
     }
 
     public void createView(String database, String query) {
-        log.info("===================================");
+        log.info(LINE_SEPARATOR);
         processQuery(database, query);
         log.info("View Created");
-        log.info("===================================");
+        log.info(LINE_SEPARATOR);
     }
 }

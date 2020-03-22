@@ -21,6 +21,7 @@ public class Covid19StateWiseService {
 
     @Autowired
     private AmazonS3Service amazonS3Service;
+
     @Autowired
     private AmazonAthenaService amazonAthenaService;
 
@@ -68,7 +69,7 @@ public class Covid19StateWiseService {
 
     public void updateAthenaTablesAndViews(String bucketName, String s3Path, String partition) {
         String outputS3FolderPath = String.format("s3://%s/query_results", bucketName);
-        String inputS3FolderPath = String.format("s3://%s%s%s", bucketName, "/", s3Path);
+        String inputS3FolderPath = String.format("s3://%s%s%s", bucketName, SLASH, s3Path);
 
         amazonAthenaService.setWaitingTime(1000);
         amazonAthenaService.setOutputS3FolderPath(outputS3FolderPath);
